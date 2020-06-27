@@ -18,7 +18,7 @@ public class Splash {
 
     @ManyToOne
     @JoinColumn(name = "splasher")
-    private User splasher;
+    private RoomTalker splasher;
 
     @Column
     private long amount;
@@ -26,8 +26,11 @@ public class Splash {
     @Column(name = "gainer_count")
     private long gainerCount;
 
-    @OneToMany(mappedBy = "splash")
+    @OneToMany(mappedBy = "splash", cascade = CascadeType.ALL)
     private List<Gain> gainList;
+
+    @Transient
+    private List<Gain> gainedList;
 
     @Column(name = "create_at", insertable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -49,11 +52,11 @@ public class Splash {
         this.token = token;
     }
 
-    public User getSplasher() {
+    public RoomTalker getSplasher() {
         return splasher;
     }
 
-    public void setSplasher(User splasher) {
+    public void setSplasher(RoomTalker splasher) {
         this.splasher = splasher;
     }
 
@@ -87,5 +90,13 @@ public class Splash {
 
     public void setGainList(List<Gain> gainList) {
         this.gainList = gainList;
+    }
+
+    public List<Gain> getGainedList() {
+        return gainedList;
+    }
+
+    public void setGainedList(List<Gain> gainedList) {
+        this.gainedList = gainedList;
     }
 }

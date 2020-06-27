@@ -10,9 +10,6 @@ public class User {
     @SequenceGenerator(name = "SEQ_END_USER", sequenceName = "end_user_id_seq", allocationSize = 1)
     private long id;
 
-    @Column(name = "room_id")
-    private String roomId;
-
     @Column
     private long balance;
 
@@ -23,15 +20,7 @@ public class User {
     public void setId(long id) {
         this.id = id;
     }
-
-    public String getRoomId() {
-        return roomId;
-    }
-
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
-    }
-
+    
     public long getBalance() {
         return balance;
     }

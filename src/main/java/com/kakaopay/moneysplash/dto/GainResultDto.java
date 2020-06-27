@@ -2,25 +2,25 @@ package com.kakaopay.moneysplash.dto;
 
 import java.io.Serializable;
 
-public class SplashResultDto {
+public class GainResultDto {
     private final boolean success;
     private final String message;
-    private String token;
+    private long gainAmount;
 
 
-    public SplashResultDto(boolean success, String message) {
+    public GainResultDto(boolean success, String message) {
         this.success = success;
         this.message = message;
     }
 
-    public SplashResultDto(String token) {
+    public GainResultDto(long gainAmount) {
         this.success = true;
-        this.message = null;
-        this.token = token;
+        this.message = "";
+        this.gainAmount = gainAmount;
     }
 
-    public String getToken() {
-        return token;
+    public long getGainAmount() {
+        return gainAmount;
     }
 
     public boolean isSuccess() {
