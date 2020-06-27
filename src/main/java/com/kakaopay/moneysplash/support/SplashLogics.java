@@ -19,13 +19,12 @@ public class SplashLogics {
     public static List<Long> distributeMoney(long amount, long gainerCount) {
         long rest = amount;
         long count = 0;
-        long sum = 0;
+
 
         List<Long> amountList = Lists.newArrayList();
         while (count < gainerCount - 1) {
             long gainAmount = RandomUtils.nextLong(0, rest / 2);
             rest = rest - gainAmount;
-            sum = sum + rest;
             amountList.add(gainAmount);
             count++;
         }

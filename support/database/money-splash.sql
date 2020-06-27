@@ -81,8 +81,6 @@ after insert on splash
 for each row
 execute procedure fn_when_create_splash();
 
-
-
 CREATE OR REPLACE FUNCTION fn_when_gain_splash()
 returns trigger
 AS $$
